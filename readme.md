@@ -1,6 +1,6 @@
-# Renderdoc
+![](renderdoc.png)
 
-Write HTML documents custom tags and render those tags with React components.
+Write HTML documents (actually, XML) with custom tags and render those tags with React components.
 
 Caveats:
 
