@@ -1,0 +1,50 @@
+{
+  "name": "renderdoc",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "fix": "eslint . --fix",
+    "format": "prettier --write --single-quote '**/*.js'",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-import-export": "^1.0.2",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "chokidar": "^1.7.0",
+    "express": "^4.16.1",
+    "front-matter": "^2.1.2",
+    "fs-extra": "^4.0.2",
+    "globby": "^6.1.0",
+    "lodash": "^4.17.4",
+    "mz": "^2.6.0",
+    "pretty": "^2.0.0",
+    "react-dom-factories": "^1.0.1",
+    "react-dom": "^15.6.1",
+    "react": "^15.6.1",
+    "replace-ext": "^1.0.0",
+    "sax": "^1.2.4",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint-config-last": "0.0.2",
+    "eslint-plugin-react": "^7.1.0",
+    "eslint": "^4.3.0",
+    "prettier": "^1.7.4"
+  },
+  "eslint": {
+    "extends": [
+      "last",
+      "plugin:react/recommended"
+    ],
+    "env": {
+      "node": true
+    }
+  }
+}
