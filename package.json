@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "",
   "license": "MIT",
+  "bin": "./cli-script.js",
   "scripts": {
     "fix": "eslint . --fix",
     "format": "prettier --write --single-quote '**/*.js'",
@@ -22,6 +23,7 @@
     "fs-extra": "^4.0.2",
     "globby": "^6.1.0",
     "lodash": "^4.17.4",
+    "meow": "^3.7.0",
     "mz": "^2.7.0",
     "pretty": "^2.0.0",
     "react": "^16.0.0",
