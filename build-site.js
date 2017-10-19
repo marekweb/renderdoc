@@ -48,24 +48,51 @@ function buildSitePublicApi(options = {}) {
 
 function doOneSiteBuild(options) {
   const { buildDir, staticDir, sourceDir, defaultLayout } = options;
-  console.log('Building...');
+  console.log('Building source:', sourceDir);
   return fs
     .emptyDir(buildDir)
-    .then(() => {
-      console.log('COPYING...');
-      return fs.copy(staticDir, buildDir);
+    .then(async function() {
+      const exists = await fs.exists(staticDir);
+      if (exists) {
+        return fs.copy(staticDir, buildDir, { recursive: true });
+      }
     })
-    .then(() => {
-      return scanTree(sourceDir);
+    .then(async function() {
+      console.log('=>', process.cwd(), sourceDir);
+      let sourceDirStat;
+      try {
+        sourceDirStat = await fs.stat(sourceDir);
+      } catch (err) {
+        if (err.code === 'ENOENT') {
+          throw new Error(`Does not exist: ${sourceDir}`);
+        }
+        throw err;
+      }
+      if (sourceDirStat.isDirectory()) {
+        // It's a directory so we scan it recursively
+        scanTree(sourceDir, buildDir);
+      } else {
+        // It's a single file
+        return [
+          {
+            sourcePath: sourceDir,
+            destinationPath: path.join(buildDir, sourceDir)
+          }
+        ];
+      }
     })
     .then(files => {
+      console.log('files', files);
       const filesPromises = files.map(async file => {
-        const sourcePath = path.join(sourceDir, file.sourcePath);
-
-        const output = await render(sourcePath, 'components', defaultLayout);
+        const output = await render(
+          file.sourcePath,
+          'components',
+          defaultLayout
+        );
         // console.log(`${file.sourcePath} -> ${file.destinationPath}`);
-        const destinationPath = path.join(buildDir, file.destinationPath);
-        await fs.ensureDir(path.dirname(destinationPath));
+        // const destinationPath = path.join(buildDir, file.destinationPath);
+        const destinationPath = file.destinationPath;
+        await fs.ensureDir(path.dirname(file.destinationPath));
         await fs.writeFile(destinationPath, output);
         return 'wrote ' + file.sourcePath;
       });
@@ -92,6 +119,7 @@ function triggerBuildFromWatch(options) {
         }
       })
       .catch(err => {
+        console.log('Error in triggerBuildFromWatch');
         console.error(err);
       });
   }
