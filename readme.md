@@ -1,55 +1,96 @@
 ![](renderdoc.png)
 
-Write HTML documents (actually, XML) with custom tags and render those tags with React components.
+Write HTML documents with custom tags and render them with your React components.
 
-Caveats:
+Renderdoc is a static document generator. It takes an input HTML document with custom tags. You provide the React components that implement the tags. The output file is the rendered HTML.
 
-- The HTML file must be well-formed and follow XML rules. Every tag must be closed or self-closing.
-- The tags are case sensitive
-- You need to supply a parent component to act as a wrapper. To render a HTML page, you probably want a component that renders a `<html>` element with the children wrapped in a `<body>`
-- The final output will be prepended with `<!doctype html>` unless you disable this feature.
+## Example
 
-## Use renderdoc with a components directory
-
-Renderdoc can load a directory of components and use them automatically.
-
-```js
-const options = {
-  componentsDirectory: './components'
-};
-```
-
-The `components` directory might look like this, with each file exporting a React component:
+As input, you need two things: an input HTML file, and a directory that contains some React components.
 
 ```
+my-document.html
 components/
-  Page.js
-  Title.js
-  Item.js
+    Chapter.js
+    Header.js
+    Page.js
 ```
 
-When you point renderdoc to this components directory, it will automatically load the components and will use them to render a document like this one:
+Here is your input file: `my-document.html`
 
 ```html
-<Page>
-  <Title>Hello, world.</Title>
-
-  <Item>My first item</Item>
-  <Item>My second item</Item>
-</Page>
+<Header>My Life Story</Header>
+<Chapter title="The Beginning">
+  It was a dark and stormy night.
+</Chapter>
 ```
 
-TODO: update the example below to match the actual API.
+In the `components` directory, you have these React components:
 
 ```js
-const renderdoc = require('renderdoc');
-
-const options = {
-    source:
-    wrapper:
-};
-
-renderdoc.renderFile(options).then(html => {
-    fs.writeFile('./output2.html', html);
-});
+// components/Chapter.js
+import React from 'react';
+export default function Chapter({ title, children }) {
+  return (
+    <div className="Chapter">
+      <h2>{title}</h2>
+      {children}
+    </div>
+  );
+}
 ```
+
+```js
+// components/Header.js
+import React from 'react';
+export default function Header({ children }) {
+  return <h1 className="Header">{children}</h1>;
+}
+
+```
+
+```js
+// components/Page.js
+import React from 'react';
+export default function Page({ children }) {
+  return (
+    <html>
+      <head>
+        <meta charSet="utf-8" />
+      </head>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+Run renderdoc on the source file. The `components` directory will be automatically used to load the components.
+
+```shell
+renderdoc my-document.html
+```
+
+The rendered output file:
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <meta charSet="utf-8" />
+  </head>
+  <body>
+    <h1 class="Header">My Life Story</h1>
+    <div class="Chapter">
+      <h2>The Beginning</h2>
+      It was a dark and stormy night.
+    </div>
+  </body>
+</html>
+```
+
+## Caveats
+
+- The HTML inpujt must be well-formed XML. Every tag must be closed or self-closing.
+- The tags are case sensitive (that's because they're loaded by filename from the `components` directory)
+- You need to supply a parent component to act as a wrapper. To render a HTML page, you probably want a component that renders a `<html>` element with the children wrapped in a `<body>`
+- The final output will be prepended with `<!doctype html>` unless you disable this feature.
