@@ -1,55 +1,97 @@
 ![](renderdoc.png)
 
-Write HTML documents (actually, XML) with custom tags and render those tags with React components.
+Write HTML documents with custom tags and render them with your React components.
 
-Caveats:
+Renderdoc is a static document generator. It takes an input HTML document with custom tags. You provide the React components that implement the tags. The output file is the rendered HTML.
 
-- The HTML file must be well-formed and follow XML rules. Every tag must be closed or self-closing.
-- The tags are case sensitive
+## Example
+
+As input, you need two things: an input HTML file, and a directory that contains some React components.
+
+```
+my-document.html
+components/
+    Chapter.js
+    Header.js
+    Page.js
+```
+
+Here is your input file: `my-document.html`
+
+```html
+<Header>My Life Story</Header>
+<Chapter title="The Beginning">
+  It was a dark and stormy night.
+</Chapter>
+```
+
+In the `components` directory, you have these React components:
+
+```js
+// components/Chapter.js
+import React from 'react';
+export default function Chapter({ title, children }) {
+  return (
+    <div className="Chapter">
+      <h2>{title}</h2>
+      {children}
+    </div>
+  );
+}
+```
+
+```js
+// components/Header.js
+import React from 'react';
+export default function Header({ children }) {
+  return <h1 className="Header">{children}</h1>;
+}
+
+```
+
+```js
+// components/Page.js
+import React from 'react';
+export default function Page({ children }) {
+  return (
+    <html>
+      <head>
+        <meta charSet="utf-8" />
+      </head>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+Run renderdoc on the source file. The `components` directory will be automatically used to load the components.
+
+```shell
+renderdoc my-document.html
+```
+
+The rendered output file:
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <meta charSet="utf-8" />
+  </head>
+  <body>
+    <h1 class="Header">My Life Story</h1>
+    <div class="Chapter">
+      <h2>The Beginning</h2>
+      It was a dark and stormy night.
+    </div>
+  </body>
+</html>
+```
+
+## Caveats:
+
+- The HTML inpujt must be well-formed XML. Every tag must be closed or self-closing.
+- The tags are case sensitive (that's because they're loaded by filename from the `components` directory)
 - You need to supply a parent component to act as a wrapper. To render a HTML page, you probably want a component that renders a `<html>` element with the children wrapped in a `<body>`
 - The final output will be prepended with `<!doctype html>` unless you disable this feature.
 
-## Use renderdoc with a components directory
-
-Renderdoc can load a directory of components and use them automatically.
-
-```js
-const options = {
-  componentsDirectory: './components'
-};
-```
-
-The `components` directory might look like this, with each file exporting a React component:
-
-```
-components/
-  Page.js
-  Title.js
-  Item.js
-```
-
-When you point renderdoc to this components directory, it will automatically load the components and will use them to render a document like this one:
-
-```html
-<Page>
-  <Title>Hello, world.</Title>
-
-  <Item>My first item</Item>
-  <Item>My second item</Item>
-</Page>
-```
-
-TODO: update the example below to match the actual API.
-
-```js
-const renderdoc = require('renderdoc');
-
-const options = {
-    source:
-    wrapper:
-};
-
-renderdoc.renderFile(options).then(html => {
-    fs.writeFile('./output2.html', html);
-});
-```
