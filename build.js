@@ -2,9 +2,16 @@ const fs = require('fs-extra');
 const path = require('path');
 const scanTree = require('./scan-tree');
 const render = require('./render');
-const { debounce, defaults } = require('lodash');
+const { map, debounce, defaults } = require('lodash');
+const debug = require('debug')('renderdoc');
 
-function buildSitePublicApi(options = {}) {
+function debugObject(obj) {
+  return map(obj, (value, key) => `${key}=${value}`).join(' ')
+}
+
+function build(options = {}) {
+  debug(`build() ${debugObject(options)}`);
+
   options = Object.assign(
     {},
     {
@@ -47,8 +54,8 @@ function buildSitePublicApi(options = {}) {
 }
 
 function doOneSiteBuild(options) {
+  debug(`doOneSiteBuild(${debugObject(options)})`);  
   const { buildDir, staticDir, sourceDir, defaultLayout } = options;
-  console.log('Building source:', sourceDir);
   return fs
     .emptyDir(buildDir)
     .then(async function() {
@@ -58,7 +65,6 @@ function doOneSiteBuild(options) {
       }
     })
     .then(async function() {
-      console.log('=>', process.cwd(), sourceDir);
       let sourceDirStat;
       try {
         sourceDirStat = await fs.stat(sourceDir);
@@ -70,7 +76,7 @@ function doOneSiteBuild(options) {
       }
       if (sourceDirStat.isDirectory()) {
         // It's a directory so we scan it recursively
-        scanTree(sourceDir, buildDir);
+        return scanTree(sourceDir, buildDir);
       } else {
         // It's a single file
         return [
@@ -82,19 +88,17 @@ function doOneSiteBuild(options) {
       }
     })
     .then(files => {
-      console.log('files', files);
+      debug(`files: ${map(files, f => `${f.sourcePath}:${f.destinationPath}`).join(', ')}`);
       const filesPromises = files.map(async file => {
         const output = await render(
           file.sourcePath,
           'components',
           defaultLayout
         );
-        // console.log(`${file.sourcePath} -> ${file.destinationPath}`);
-        // const destinationPath = path.join(buildDir, file.destinationPath);
         const destinationPath = file.destinationPath;
         await fs.ensureDir(path.dirname(file.destinationPath));
         await fs.writeFile(destinationPath, output);
-        return 'wrote ' + file.sourcePath;
+        debug(`wrote ${destinationPath}`);
       });
 
       return Promise.all(filesPromises);
@@ -104,7 +108,7 @@ function doOneSiteBuild(options) {
 let buildInProgress;
 let newBuildTriggered;
 function triggerBuildFromWatch(options) {
-  console.log('triggerBuildFromWatch');
+  debug('triggerBuildFromWatch()');
   if (buildInProgress) {
     newBuildTriggered = true;
     return buildInProgress;
@@ -127,4 +131,4 @@ function triggerBuildFromWatch(options) {
   return buildInProgress;
 }
 
-module.exports = buildSitePublicApi;
+module.exports = build;
