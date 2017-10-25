@@ -25,14 +25,12 @@
     "globby": "^6.1.0",
     "lodash": "^4.17.4",
     "meow": "^3.7.0",
-    "mz": "^2.7.0",
     "pretty": "^2.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-dom-factories": "^1.0.2",
     "replace-ext": "^1.0.0",
-    "sax": "^1.2.4",
-    "xml2js": "^0.4.19"
+    "sax": "^1.2.4"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",
