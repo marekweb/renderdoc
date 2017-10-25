@@ -123,13 +123,15 @@ function triggerBuildFromWatch(options) {
         console.log('build finished');
         if (newBuildTriggered) {
           newBuildTriggered = false;
-          buildInProgress = null;
           return triggerBuildFromWatch(options);
+        } else {
+          buildInProgress = false;
         }
       })
       .catch(err => {
         console.log('Error in triggerBuildFromWatch');
         console.error(err);
+        buildInProgress = false;
       });
   }
 
