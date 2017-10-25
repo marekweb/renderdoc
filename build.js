@@ -6,7 +6,7 @@ const { map, debounce, defaults } = require('lodash');
 const debug = require('debug')('renderdoc');
 
 function debugObject(obj) {
-  return map(obj, (value, key) => `${key}=${value}`).join(' ')
+  return map(obj, (value, key) => `${key}=${value}`).join(' ');
 }
 
 function build(options = {}) {
@@ -54,7 +54,7 @@ function build(options = {}) {
 }
 
 function doOneSiteBuild(options) {
-  debug(`doOneSiteBuild(${debugObject(options)})`);  
+  debug(`doOneSiteBuild(${debugObject(options)})`);
   const { buildDir, staticDir, sourceDir, defaultLayout } = options;
   return fs
     .emptyDir(buildDir)
@@ -88,7 +88,12 @@ function doOneSiteBuild(options) {
       }
     })
     .then(files => {
-      debug(`files: ${map(files, f => `${f.sourcePath}:${f.destinationPath}`).join(', ')}`);
+      const filesListDebug = map(
+        files,
+        f => `${f.sourcePath}:${f.destinationPath}`
+      );
+
+      debug(`files: ${filesListDebug.join(' ')}`);
       const filesPromises = files.map(async file => {
         const output = await render(
           file.sourcePath,
