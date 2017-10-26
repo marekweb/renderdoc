@@ -9,7 +9,8 @@
   "scripts": {
     "fix": "eslint . --fix",
     "format": "prettier --write --single-quote '**/*.js'",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "nyc ava --verbose"
   },
   "dependencies": {
     "babel-preset-env": "^1.6.1",
@@ -33,10 +34,12 @@
     "sax": "^1.2.4"
   },
   "devDependencies": {
+    "ava": "^0.23.0",
     "babel-eslint": "^8.0.1",
+    "eslint": "^4.9.0",
     "eslint-config-last": "0.0.3",
     "eslint-plugin-react": "^7.4.0",
-    "eslint": "^4.9.0",
+    "nyc": "^11.2.1",
     "prettier": "^1.7.4"
   },
   "eslint": {
