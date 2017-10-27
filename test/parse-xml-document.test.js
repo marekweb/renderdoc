@@ -1,4 +1,4 @@
-const {test} = require('ava');
+const { test } = require('ava');
 const parseXmlDocument = require('../parse-xml-document');
 
 const input = `
@@ -9,53 +9,13 @@ const input = `
 </Chapter>
 `;
 
-const expectedOutput = [
-    {
-        "type": "text",
-        "text": "\n"
-    },
-    {
-        "type": "element",
-        "tag": "Header",
-        "attributes": {},
-        "children": [
-            {
-                "type": "text",
-                "text": "My Life Story"
-            }
-        ]
-    },
-    {
-        "type": "text",
-        "text": "\n\n"
-    },
-    {
-        "type": "element",
-        "tag": "Chapter",
-        "attributes": {
-            "title": "The Beginning"
-        },
-        "children": [
-            {
-                "type": "text",
-                "text": "\n  It was a dark and stormy night.\n"
-            }
-        ]
-    },
-    {
-        "type": "text",
-        "text": "\n"
-    }
-];
-
 test('test parseXmlDocument', t => {
-    const output = parseXmlDocument(input);
-
-    t.deepEqual(output, expectedOutput);
+  const output = parseXmlDocument(input);
+  t.snapshot(output);
 });
 
 test('parseXmlDocument should throw an error on invalid input', t => {
-    t.throws(function () {
-        const output = parseXmlDocument();
-    });
+  t.throws(function() {
+    const output = parseXmlDocument();
+  });
 });

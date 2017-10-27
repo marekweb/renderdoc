@@ -8,3 +8,7 @@ test('buildSite exists', t => {
 test('throw an error if called with no options', async t => {
     await t.throws(renderdoc.buildSite());
 });
+
+test('it should work', async t => {
+    renderdoc.buildSite({rootDir: './examples/example1', sourceDir: 'my-document.html'});
+});
