@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="18.139584mm"
+   height="27.365377mm"
+   viewBox="0 0 18.139584 27.365377"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="layout-component.svg"
+   inkscape:export-filename="/home/marek/dev/personal/renderdoc/images/layout-component.png"
+   inkscape:export-xdpi="210.03789"
+   inkscape:export-ydpi="210.03789">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ff7171"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="-125.04631"
+     inkscape:cy="-11.741869"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     fit-margin-top="1"
+     fit-margin-left="1"
+     fit-margin-right="1"
+     fit-margin-bottom="1"
+     inkscape:window-width="1920"
+     inkscape:window-height="981"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="false"
+     inkscape:measure-start="0,0"
+     inkscape:measure-end="0,0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4504"
+       originx="-1.5135416"
+       originy="-268.74269" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-1.5135416,-0.89191419)">
+    <path
+       style="fill:#4fc3f7;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 2.6458333,4.6353759 V 27.125 H 18.520833 V 7.2812092 L 15.875,4.6353759 Z M 3.9687499,11.25 H 17.197917 V 23.15625 H 3.9687499 Z"
+       id="path4506"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 15.874999,4.6354166 v 2.6458333 h 2.645834"
+       id="path4508"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Alte DIN 1451 Mittelschrift gepraegt';-inkscape-font-specification:'Alte DIN 1451 Mittelschrift gepraegt';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="2.6458323"
+       y="3.3502975"
+       id="text5132"><tspan
+         sodipodi:role="line"
+         id="tspan5130"
+         x="2.6458323"
+         y="3.3502975"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';stroke-width:0.26458332">&lt;Page&gt;</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.13878822px;line-height:0;font-family:'Alte DIN 1451 Mittelschrift gepraegt';-inkscape-font-specification:'Alte DIN 1451 Mittelschrift gepraegt';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1784697"
+       x="3.3587179"
+       y="6.6536331"
+       id="text5132-3-7"><tspan
+         sodipodi:role="line"
+         x="3.3587179"
+         y="6.6536331"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.16416669px;line-height:0%;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';stroke-width:0.1784697"
+         id="tspan5174">&lt;html&gt;</tspan><tspan
+         sodipodi:role="line"
+         x="3.3587179"
+         y="8.4983854"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.16416669px;line-height:0%;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';stroke-width:0.1784697"
+         id="tspan5178">   &lt;head&gt;...&lt;/head&gt;</tspan><tspan
+         sodipodi:role="line"
+         x="3.3587179"
+         y="10.343138"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.16416669px;line-height:0%;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';stroke-width:0.1784697"
+         id="tspan5180">   &lt;body&gt;</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.13878822px;line-height:0;font-family:'Alte DIN 1451 Mittelschrift gepraegt';-inkscape-font-specification:'Alte DIN 1451 Mittelschrift gepraegt';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1784697"
+       x="3.3587179"
+       y="24.588598"
+       id="text5132-3-7-3"><tspan
+         sodipodi:role="line"
+         x="3.3587179"
+         y="24.588598"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.16416669px;line-height:0em;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';stroke-width:0.1784697"
+         id="tspan5180-2">   &lt;/body&gt;</tspan><tspan
+         sodipodi:role="line"
+         x="3.3587179"
+         y="26.433352"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.16416669px;line-height:0em;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';stroke-width:0.1784697"
+         id="tspan5216">&lt;/html&gt;</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.13878822px;line-height:0;font-family:'Alte DIN 1451 Mittelschrift gepraegt';-inkscape-font-specification:'Alte DIN 1451 Mittelschrift gepraegt';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1784697"
+       x="6.9683909"
+       y="17.690531"
+       id="text5132-3-7-3-9"><tspan
+         sodipodi:role="line"
+         x="6.9683909"
+         y="17.690531"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.16416669px;line-height:0em;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';stroke-width:0.1784697"
+         id="tspan5216-2">{children}</tspan></text>
+  </g>
+</svg>
