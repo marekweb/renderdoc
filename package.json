@@ -10,7 +10,8 @@
     "fix": "eslint . --fix",
     "format": "prettier --write --single-quote '**/*.js'",
     "lint": "eslint .",
-    "test": "nyc ava --verbose"
+    "test": "nyc ava --verbose",
+    "watch:test": "npm t -- --watch"
   },
   "dependencies": {
     "babel-preset-env": "^1.6.1",
@@ -43,10 +44,7 @@
     "prettier": "^1.7.4"
   },
   "eslint": {
-    "extends": [
-      "last",
-      "plugin:react/recommended"
-    ],
+    "extends": ["last", "plugin:react/recommended"],
     "env": {
       "node": true
     }
