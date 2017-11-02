@@ -1,5 +1,6 @@
 const fs = require('fs-extra');
 const path = require('path');
+const { fork } = require('child_process');
 const scanTree = require('./scan-tree');
 const render = require('./render');
 const { map, debounce, defaults } = require('lodash');
@@ -37,14 +38,21 @@ function build(options = {}) {
       triggerBuildFromWatch(options);
     }, 100);
     chokidar.watch(pathsToWatch).on('all', handleWatchChange);
-
     if (options.serve) {
+      const liveServer = require('live-server');
+      const params = {
+        root: path.join(options.rootDir, options.buildDir)
+      };
+      // Live-reload is unreliable here and only seems to work for a short while
+      fork(liveServer.start(params));
+      /*
       const express = require('express');
       const app = express();
       app.use(express.static(path.join(options.rootDir, options.buildDir)));
       const port = options.port || '8080';
       console.log('We are going to listen on ' + port);
       app.listen(port);
+      */
     }
 
     return Promise.resolve();

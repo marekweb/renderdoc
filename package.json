@@ -11,8 +11,7 @@
     "format": "prettier --write --single-quote '**/*.js'",
     "lint": "eslint .",
     "test": "nyc ava --verbose",
-    "watch:test": "npm t -- --watch",
-    "serve": "node live-server.js"
+    "watch:test": "npm t -- --watch"
   },
   "dependencies": {
     "babel-preset-env": "^1.6.1",
@@ -26,6 +25,7 @@
     "front-matter": "^2.2.0",
     "fs-extra": "^4.0.2",
     "globby": "^6.1.0",
+    "live-server": "^1.2.0",
     "lodash": "^4.17.4",
     "meow": "^3.7.0",
     "pretty": "^2.0.0",
@@ -41,12 +41,14 @@
     "eslint": "^4.9.0",
     "eslint-config-last": "0.0.3",
     "eslint-plugin-react": "^7.4.0",
-    "live-server": "^1.2.0",
     "nyc": "^11.2.1",
     "prettier": "^1.7.4"
   },
   "eslint": {
-    "extends": ["last", "plugin:react/recommended"],
+    "extends": [
+      "last",
+      "plugin:react/recommended"
+    ],
     "env": {
       "node": true
     }
