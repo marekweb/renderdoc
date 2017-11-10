@@ -5,15 +5,15 @@ const { get } = require('lodash');
 /**
  *
  * @param {ParsedXmlNode} node
- * @param {Object<string, React.Component>} componentMap
+ * @param {Object<string, React.Component>} 
  */
-function convertNodeToReact(node, componentMap) {
+function convertNodeToReactElement(node, componentMap) {
   if (node.type === 'text') {
     return node.text;
   }
 
   if (node.type !== 'element') {
-    throw new Error('nodeToReact needs an element node');
+    throw new Error('convertNodeToReactElement needs an element node');
   }
 
   // by using `get` we allow paths, like `A.B`
