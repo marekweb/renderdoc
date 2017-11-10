@@ -40,12 +40,16 @@ function getStackTop() {
 /**
  *
  * @param {string} xmlString
- * @return {Array} Array of nodes in the root of the document
+ * @return {ParsedXmlNode[]} Array of nodes in the root of the document
  */
 function parseXmlString(xmlString) {
-  if (!xmlString || !xmlString.length) {
+  if (!xmlString) {
+    return [];
+  }
+  
+  if ((typeof xmlString) !== 'string') {
     throw new Error(
-      `parseXmlString expected a string, instead got ${xmlString}`
+      `parseXmlString expected a string, instead got ${typeof xmlString}`
     );
   }
 

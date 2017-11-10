@@ -40,7 +40,7 @@ function getStackTop() {
 /**
  * 
  * @param {string} document 
- * @return {Array} Array of nodes in the root of the document
+ * @return {ParsedXmlNode[]} Array of nodes in the root of the document
  */
 function parseHtml(document) {
   if (!document || !document.length) {
