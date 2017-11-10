@@ -31,10 +31,10 @@ function convertNodeToReactElement(node, componentMap) {
   }
 
   const children = node.children.map(child =>
-    convertNodeToReact(child, componentMap)
+    convertNodeToReactElement(child, componentMap)
   );
 
   return React.createElement(component, node.attributes, children);
 }
 
-module.exports = convertNodeToReact;
+module.exports = convertNodeToReactElement;
