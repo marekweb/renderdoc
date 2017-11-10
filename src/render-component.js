@@ -5,7 +5,9 @@ const convertNodeToReactElement = require('./convert-node-to-react-element');
 function renderComponent(props) {
   const { source = '', components = {} } = props;
   const nodes = parseXmlString(source);
-  const elements = nodes.map(node => convertNodeToReactElement(node, components));
+  const elements = nodes.map(node =>
+    convertNodeToReactElement(node, components)
+  );
 
   return elements;
 }

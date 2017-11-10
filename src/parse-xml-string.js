@@ -43,14 +43,14 @@ function getStackTop() {
  * @return {ParsedXmlNode[]} Array of nodes in the root of the document
  */
 function parseXmlString(xmlString) {
-  if (!xmlString) {
-    return [];
-  }
-
   if (typeof xmlString !== 'string') {
     throw new Error(
       `parseXmlString expected a string, instead got ${typeof xmlString}`
     );
+  }
+
+  if (!xmlString.length) {
+    return [];
   }
 
   // This node corresponds to the dummy <root> element that wraps the document.
