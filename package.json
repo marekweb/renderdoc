@@ -42,7 +42,8 @@
     "eslint-config-last": "0.0.3",
     "eslint-plugin-react": "^7.4.0",
     "nyc": "^11.2.1",
-    "prettier": "^1.7.4"
+    "prettier": "^1.7.4",
+    "react-test-renderer": "^16.1.0"
   },
   "eslint": {
     "extends": [
