@@ -5,7 +5,7 @@ const { get } = require('lodash');
 /**
  *
  * @param {ParsedXmlNode} node
- * @param {Object<string, React.Component>} 
+ * @param {Object<string, React.Component>} componentMap
  */
 function convertNodeToReactElement(node, componentMap) {
   if (node.type === 'text') {

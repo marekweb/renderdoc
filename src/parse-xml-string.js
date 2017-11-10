@@ -46,8 +46,8 @@ function parseXmlString(xmlString) {
   if (!xmlString) {
     return [];
   }
-  
-  if ((typeof xmlString) !== 'string') {
+
+  if (typeof xmlString !== 'string') {
     throw new Error(
       `parseXmlString expected a string, instead got ${typeof xmlString}`
     );
