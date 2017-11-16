@@ -33,6 +33,7 @@
     "react-dom": "^16.0.0",
     "react-dom-factories": "^1.0.2",
     "replace-ext": "^1.0.0",
+    "require-all": "^2.2.0",
     "sax": "^1.2.4"
   },
   "devDependencies": {
