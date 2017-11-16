@@ -34,7 +34,6 @@ test('render without doc type', t => {
     source: input,
     parentComponent: components
   });
-  console.log(output);
   t.is(
     output,
     '<p class="one"><p>The <b>quick</b> <i>fox</i> jumped over the lazy dog.</p></p>'
