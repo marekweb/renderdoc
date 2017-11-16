@@ -39,7 +39,7 @@ test('render source with a comment', t => {
 });
 
 function TestComponentOne({ children }) {
-  return React.createElement('p', {className:'one'}, children);
+  return React.createElement('p', { className: 'one' }, children);
 }
 
 test('render  with a custom component', t => {
@@ -47,7 +47,15 @@ test('render  with a custom component', t => {
   const components = {
     TestComponentOne
   };
-  const element = React.createElement(renderComponent, { source,  components });
+  const element = React.createElement(renderComponent, { source, components });
   const rendered = render.create(element).toJSON();
   t.snapshot(rendered);
+});
+
+
+test('render with an unknown tag', t => {
+  const source = 'The <Unknown>tag</Unknown>';
+  t.throws(() => {
+    const output = renderComponent({ source });
+  }, 'Cannot create component from unknown tag <Unknown> (case sensitive)');
 });
